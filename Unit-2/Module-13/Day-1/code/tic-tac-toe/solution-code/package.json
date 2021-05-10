@@ -1,0 +1,22 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "pretest": "eslint . --ext .js",
+    "test": "echo This is where testing would happen.",
+    "precustom": "echo PREcustom",
+    "custom": "echo CUSTOM",
+    "postcustom": "echo POSTcustom"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0"
+  }
+}

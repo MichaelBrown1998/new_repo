@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "2gua.rainbow-brackets",
+    "codezombiech.gitignore",
+    "coenraads.bracket-pair-colorizer-2",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "kisstkondoros.vscode-gutter-preview",
+    "meganrogge.template-string-converter",
+    "naumovs.color-highlight",
+    "oderwat.indent-rainbow",
+    "pkief.material-icon-theme",
+    "equinusocio.vsc-material-theme",
+    "stkb.rewrap",
+    "tyriar.sort-lines",
+    "visualstudioexptteam.vscodeintellicode"
+  ]
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/normalize-css@2.3.1/normalize.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Your Company Name</title>
+  </head>
+
+  <body>
+    <header>
+      <!-- TODO: Add some company insignia/logo/graphic, if desired. -->
+      <h1>Your Company Name</h1>
+    </header>
+
+    <main>
+      <section class="hero flex flex--align-center flex--justify-center">
+        <div>
+          <h2>Your Company Name is Awesome...</h2>
+          <h3>Here Are 3 Reasons Why...</h3>
+          <ul>
+            <li>Reason Why We're Awesome #1</li>
+            <li>Reason Why We're Awesome #2</li>
+            <li>Reason Why We're Awesome #3</li>
+          </ul>
+          <a href="#" class="button button--cta">Call To Action (CTA)</a>
+        </div>
+      </section>
+
+      <div class="md-container md-flex">
+        <section class="card md-flex md-flex--align-center md-flex--column">
+          <h2>More About Reason #1</h2>
+          <p>This is some very convincing text to support this reason!</p>
+          <p>And, here's even more information</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+            voluptatem nobis, quod aspernatur minus non consequuntur laudantium
+            dolorum! Repellat fugiat provident assumenda at error similique
+            facilis aut placeat esse a?
+          </p>
+          <a href="#" class="button button--secondary">Find out more</a>
+        </section>
+
+        <section class="card md-flex md-flex--align-center md-flex--column">
+          <h2>More About Reason #2</h2>
+          <p>This is some very convincing text to support this reason!</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut harum
+            nesciunt totam architecto iusto soluta itaque debitis eius optio
+            ratione id, deleniti iure. Magni voluptates harum nemo, quidem
+            aliquid corporis.
+          </p>
+          <a href="#" class="button button--secondary">Find out more</a>
+        </section>
+
+        <section class="card md-flex md-flex--align-center md-flex--column">
+          <h2>More About Reason #3</h2>
+          <p>This is some very convincing text to support this reason!</p>
+          <p>This one is even longer!</p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem id
+            laudantium adipisci placeat corporis eligendi soluta odit dicta,
+            provident ea ab dolor omnis. Ipsa officia, praesentium animi
+            perspiciatis incidunt excepturi?
+          </p>
+          <a href="#" class="button button--secondary">Find out more</a>
+        </section>
+      </div>
+
+      <section
+        class="container md-container md-flex md-flex--column md-flex--align-center"
+      >
+        <h2>Contact Us!</h2>
+        <form>
+          <div class="sm-flex">
+            <div class="flex flex--column">
+              <label for="name">Your Name:</label
+              ><input type="text" id="name" />
+            </div>
+
+            <div class="flex flex--column">
+              <label for="name">Your Email:</label
+              ><input type="email" id="email" />
+            </div>
+
+            <div class="flex flex--column">
+              <label for="name">Your Phone #:</label
+              ><input type="tel" id="phone" />
+            </div>
+          </div>
+
+          <div class="flex flex--column">
+            <label for="msg"></label
+            ><textarea id="msg" cols="30" rows="10"></textarea>
+          </div>
+
+          <button type="submit" class="button button--cta">Submit Form</button>
+          <button type="reset" class="button button--secondary">
+            Reset Form
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="container container--dark">
+      <p>&copy; 2021 Your Company Name</p>
+      <a href="mailto:hello@yourcompanyname.com">Email Us!</a>&nbsp;&bull;
+      <a href="tel:+15555555555">(555) 555-5555</a>
+    </footer>
+  </body>
+</html>

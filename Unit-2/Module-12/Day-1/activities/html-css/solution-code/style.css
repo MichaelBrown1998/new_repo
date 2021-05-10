@@ -1,0 +1,155 @@
+:root {
+  --primary: #6200ee;
+  --primary-variant: #3700b3;
+  --secondary: #03dac6;
+  --secondary-variant: #018716;
+}
+
+header {
+  padding: 8px;
+  color: #fff;
+  text-align: center;
+  background: var(--primary);
+}
+
+.hero {
+  width: 100vw;
+  height: 75vh;
+
+  /* Random decorative image from unsplash */
+  background: url("https://source.unsplash.com/random/800x600") center center
+    no-repeat;
+  background-size: cover;
+}
+
+.hero div {
+  padding: 16px;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+h2 {
+  line-height: 1.15;
+}
+
+p {
+  line-height: 1.25;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  margin: 8px 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+form div {
+  margin: 16px 0;
+}
+
+/* Utility Classes */
+.button {
+  display: inline-block;
+  padding: 16px 8px;
+  margin: 8px 0;
+  color: #fff;
+  text-transform: capitalize;
+  border-radius: 4px;
+}
+
+.button--cta {
+  background-color: var(--secondary-variant);
+}
+
+.button--secondary {
+  background-color: var(--secondary);
+}
+
+.card {
+  padding: 8px;
+  color: #fff;
+  text-align: center;
+}
+
+.card:nth-child(odd) {
+  background: var(--primary-variant);
+}
+
+.card:nth-child(even) {
+  background: var(--primary);
+}
+
+.container {
+  padding: 8px 16px;
+  background-color: #f8f8ff;
+}
+
+.container--dark {
+  color: #fff;
+  background-color: #333;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--align-center {
+  align-items: center;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.flex--justify-center {
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  textarea {
+    max-width: 768px;
+  }
+
+  .card p {
+    max-width: 550px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .sm-flex {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .md-container {
+    padding: 16px;
+  }
+
+  .md-flex {
+    display: flex;
+    gap: 16px;
+  }
+
+  .md-flex--align-center {
+    align-items: center;
+  }
+
+  .md-flex--column {
+    flex-direction: column;
+  }
+
+  .card .button {
+    max-width: 120px;
+    margin-top: auto;
+  }
+}

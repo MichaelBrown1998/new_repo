@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/moto-config-service/moto-config-service.iml" filepath="$PROJECT_DIR$/moto-config-service/moto-config-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moto-inventory-service/moto-inventory-service.iml" filepath="$PROJECT_DIR$/moto-inventory-service/moto-inventory-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/moto-service-registry/moto-service-registry.iml" filepath="$PROJECT_DIR$/moto-service-registry/moto-service-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/solution.iml" filepath="$PROJECT_DIR$/.idea/solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vin-lookup/vin-lookup.iml" filepath="$PROJECT_DIR$/vin-lookup/vin-lookup.iml" />
+    </modules>
+  </component>
+</project>

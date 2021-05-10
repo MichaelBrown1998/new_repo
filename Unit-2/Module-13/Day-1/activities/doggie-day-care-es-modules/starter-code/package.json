@@ -1,0 +1,19 @@
+{
+  "name": "doggie-day-care",
+  "version": "1.0.0",
+  "description": "Dog-sitting drop-off and pickup management.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "pretest": "eslint . --ext .js",
+    "test": "echo testing, testing"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0"
+  }
+}

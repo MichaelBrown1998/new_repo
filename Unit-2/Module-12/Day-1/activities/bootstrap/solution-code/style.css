@@ -1,0 +1,12 @@
+.hero {
+  height: 75vh;
+  max-height: 550px;
+
+  background: url("https://source.unsplash.com/random/800x600") center center
+    no-repeat;
+  background-size: cover;
+}
+
+.hero div {
+  background-color: rgba(0, 0, 0, 0.8);
+}
