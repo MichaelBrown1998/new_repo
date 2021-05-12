@@ -1,5 +1,7 @@
+// importing the hook "useState" from the react java class given to us by Node
 import { useState } from 'react';
 
+// 
 function EncounterForm({ encounter: initialEncounter, notify }) {
 
     const [encounter, setEncounter] = useState(initialEncounter);

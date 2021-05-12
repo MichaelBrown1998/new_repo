@@ -24,7 +24,7 @@ const Table = ({ data, dataSorting }) => `
     <tr>
       <th scope="row">ID<i class="bi ${dataSorting.id}" data-key="id"></i></th>
       <th scope="col">Name <i class="bi ${
-        dataSorting.name
+          dataSorting.name
       }" data-key="name"></i></th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
