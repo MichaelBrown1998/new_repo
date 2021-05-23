@@ -1,104 +1,110 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable comma-dangle */
+/* eslint-disable semi */
+/* eslint-disable quotes */
 // importing different javascript pages to the index.
-import Table from 'Table.js'
-import Form from 'starter-code/components/Form.js'
-import api from 'starter-code/api/index.js'
+import { useEffect, useState } from 'react';
+import Table from "./components/Table.js";
+import Form from "./components/Form.js";
+import api from "./api/index.js";
+import GameFilter from "./GameFilter";
+import Rows from "./Rows"
 
-const root = document.querySelector('#root')
+function Games () {
+  const [games, setGames] = useState([]);
+  const [scopedGame, setScopedGame] = useState({ id: 0 });
+  const [showForm, setShowForm] = useState(false);
+  const [error, setError] = useState();
+  const [refresh, setRefresh] = useState(0);
+  const [filterText, setFilterText] = useState("");
 
-const state = {
-  data: [],
-  dataSorting: {
-    id: 'bi-sort-alpha-down',
-    title: 'bi-sort-alpha-down'
+  console.log(games);
+  useEffect(() => {
+    fetch("http://localhost:8080/game")
+      .then(response => response.json())
+      .then(result => setGames(result))
+      .catch(err => console.log(err));
+  }, [refresh]);
+
+  function addGameClick () {
+    setScopedGame({
+      id: 0,
+      title: "",
+      Rating: "",
+      description: "",
+      price: "",
+      studio: "",
+      quantity: "",
+    });
+    setShowForm(true);
   }
-}
-function render () {
-  root.innerHTML = state.data.length
-    ? `
-  ${Table(state)}
-  ${Form()}
-  `
-    : '<p>There are no games to display here!</p>'
 
-  root.querySelector('form')?.addEventListener('submit', (event) => {
-    event.preventDefault()
+  function getFilteredGames (games) {
+    // only select by one!
+    console.log(games, filterText)
+    return games.filter(g => g.studio.toLowerCase().includes(filterText.toLowerCase()))
+    // check the filter for each box that is checked
+  }
 
-    const newGame = {
-      ...Object.fromEntries(new FormData(event.target)),
-      ...{ id: state.data.length + 1 }
+  function updateFilterText (evt) {
+    // all information needed thats why it is an event
+    setFilterText(evt.target.value)
+    console.log(evt)
+  }
+
+  function notify ({ action, game, error }) {
+    console.log(action, game, error)
+    if (error) {
+      setError(error);
+      setShowForm(false);
+      return;
     }
 
-    api.create(newGame).then(() => {
-      state.data = [...state.data, newGame]
-      render()
-    })
-  })
+    switch (action) {
+      case "add":
+        setGames([...games, game]);
+        break;
+      case "edit":
+        setRefresh(refresh + 1)
+        break;
+      case "edit-form":
+        setScopedGame(game);
+        setShowForm(true);
+        return;
+      case "delete":
+        setGames(games.filter(g => g.id !== game.id));
+        break;
+    }
+    setShowForm(false);
+  }
 
-  root.querySelectorAll('.btn-danger').forEach((button) => {
-    button.addEventListener('click', function () {
-      const id4Deletion = this.closest('tr').querySelector('td').innerText
-      api.delete(id4Deletion).then(() => {
-        state.data = state.data.filter(({ id }) => id !== Number(id4Deletion))
-        render()
-      })
-    })
-  })
+  if (showForm) {
+    return <Form game={scopedGame} notify={notify} />
+  }
 
-  root.querySelectorAll('table input').forEach((input) => {
-    input.addEventListener('change', function () {
-      const key4Update = this.dataset.key
-      const value4Update = this.value
-      const id4Update = this.closest('tr').querySelector('td').innerText
+  return (
+    <>
+        <div className="row mt-2">
 
-      api
-        .update(
-          { [key4Update]: value4Update },
-          id4Update
-        )
-        .then(() => {
-          const game2Update = state.data.find(
-            ({ id }) => id === Number(id4Update)
-          )
+            <div className="col-8">
+                <h2>Games Inventory:</h2>
+            </div>
 
-          const updatedGame = {
-            ...game2Update,
-            ...{ [key4Update]: value4Update }
-          }
+            <div className="col">
+                <button className="btn btn-primary" onClick={addGameClick}>Add a Game</button>
+            </div>
 
-          state.data = [
-            ...state.data.filter(({ id }) => id !== Number(id4Update)),
-            updatedGame
-          ].sort((currentItem, nextItem) => currentItem.id > nextItem.id)
+        </div>
+        {error && <div className="alert alert-danger">{error}</div>}
 
-          render()
-        })
-    })
-  })
+        <GameTable games={getFilteredGames(games)} notify={notify}/>
 
-  root.querySelectorAll('table i').forEach((icon) => {
-    icon.addEventListener('click', function () {
-      const key4Sorting = this.dataset.key
-      state.dataSorting[key4Sorting] = state.dataSorting[key4Sorting].endsWith(
-        'down'
-      )
-        ? 'bi-sort-alpha-up'
-        : 'bi-sort-alpha-down'
+            <div className="col-4">
+                <GameFilter filterText ={filterText} setFilterText = {setFilterText}/>
+            </div>
 
-      state.data = state.data.sort((currentItem, nextItem) =>
-        state.dataSorting[key4Sorting].endsWith('down')
-          ? currentItem[key4Sorting] > nextItem[key4Sorting]
-          : currentItem[key4Sorting] < nextItem[key4Sorting]
-      )
-
-      render()
-    })
-  })
+    </>
+  );
 }
 
-(async () => {
-  state.data = await api.index()
-  console.log(state.data)
-  render()
-})()
-
-render()
+export default Games;
